@@ -1,6 +1,7 @@
 {
   "name": "ican2",
   "version": "0.1.0",
+  "homepage": "http://nabroleonx.github.io/Girl-Hack-2022/",
   "private": true,
   "dependencies": {
     "@emoji-mart/data": "^1.0.5",
