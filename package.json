@@ -1,6 +1,7 @@
 {
   "name": "ican2",
   "version": "0.1.0",
+  "homepage": "http://nabroleonx.github.io/Girl-Hack-2022/",
   "private": true,
   "dependencies": {
     "@emoji-mart/data": "^1.0.5",
@@ -17,6 +18,7 @@
     "date-fns": "^2.29.2",
     "emoji-mart": "^5.2.1",
     "firebase": "^9.9.4",
+    "gh-pages": "^4.0.0",
     "lodash": "^4.17.21",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
@@ -28,6 +30,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
