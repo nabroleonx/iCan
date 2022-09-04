@@ -80,12 +80,14 @@ function App() {
     return (
       <div className="flex items-center justify-center shadow-md h-screen">
         <div className="flex flex-col items-center justify-center max-w-xl w-full mx-4 p-8 rounded-md shadow-card bg-transparent transition-all">
-        <h1 class="text-4xl font-bold">iCan✊🏾</h1>
-          <h4 className="mb-2 text-1x5 font-italic flex items-center">“Women belong in all places where decisions are being made. It shouldn't be that women are the exception.”
-― Ruth Bader Ginsburg</h4>
-          <p className="mb-8 text-lg text-center font-bold">Unity, Stregth, and Power</p>
-
-          <img src="https://cdn2.iconfinder.com/data/icons/female-woman/267/Female_feminine_feminism_feminist_power_strong_woman-1024.png" width="200" height="200"/>
+          <h1 class="text-4xl font-light mb-6">iCan✊🏾</h1>
+          <p className="mb-6 text-lg text-center font-light">
+            Unity, Stregth, and Power
+          </p>
+          <h4 className="mb-6 text-sm font-italic flex items-center border-l-4 border-l-slate-400 pl-2 bg-slate-100 dark:bg-slate-800 py-2 rounded-r-md">
+            “Women belong in all places where decisions are being made. It
+            shouldn't be that women are the exception.” ― Ruth Bader Ginsburg
+          </h4>
           <button
             onClick={signInWithGoogle}
             className="rounded shadow-button mb-1 pl-6 pr-8 py-3 bg-slate-50 hover:bg-slate-100 dark:bg-slate-800 dark:text-white border border-slate-200 dark:border-slate-700 dark:hover:bg-slate-700 text-gray-600 font-medium flex items-center gap-1 justify-center overflow-y-hidden focus:outline-none focus:ring focus:ring-red-500 focus:ring-opacity-75"
@@ -389,7 +391,6 @@ function App() {
             </svg>
             Sign in Anonymously
           </button>
-          
         </div>
       </div>
     );
@@ -412,7 +413,9 @@ function App() {
             >
               Logout
             </button>
-          ) : null}
+          ) : (
+            <div className="w-10"></div>
+          )}
         </div>
       </header>
       <main
