@@ -3,9 +3,15 @@ import PropTypes from "prop-types";
 import firebase from "firebase/compat/app";
 import { useFirestoreQuery } from "../hooks";
 import Message from "./Message";
-import { CameraIcon, XMarkIcon } from "@heroicons/react/20/solid";
+import {
+  CameraIcon,
+  FaceSmileIcon,
+  XMarkIcon,
+} from "@heroicons/react/20/solid";
 import { useUploadFile } from "react-firebase-hooks/storage";
 import { auth, storage } from "../App";
+import data from "@emoji-mart/data";
+import Picker from "@emoji-mart/react";
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -18,6 +24,7 @@ const Channel = ({ user = null }) => {
   );
 
   const [newMessage, setNewMessage] = useState("");
+  const [showEmojis, setShowEmojis] = useState(false);
 
   const inputRef = useRef();
   const imgRef = useRef();
@@ -64,8 +71,17 @@ const Channel = ({ user = null }) => {
   };
 
   useEffect(() => {
-    console.log(selectedFile);
-  }, [selectedFile]);
+    console.log(newMessage);
+  }, [newMessage]);
+
+  const addEmoji = (e) => {
+    let sym = e.unified.split("-");
+    let codesArray = [];
+    sym.forEach((el) => codesArray.push("0x" + el));
+    let emoji = String.fromCodePoint(...codesArray);
+    console.log(emoji);
+    setNewMessage(newMessage + emoji);
+  };
 
   return (
     <div className="flex flex-col h-screen">
@@ -143,6 +159,11 @@ const Channel = ({ user = null }) => {
                 </div>
               </div>
             )}
+            {showEmojis && (
+              <div className="py-3">
+                <Picker data={data} onEmojiSelect={addEmoji} />
+              </div>
+            )}
             <form onSubmit={handleOnSubmit} className="relative">
               <div className="rounded-lg border border-gray-500 shadow-sm focus-within:border-pink-500">
                 <textarea
@@ -163,7 +184,7 @@ const Channel = ({ user = null }) => {
 
               <div className="absolute inset-x-0 bottom-0 flex justify-between py-2 pl-3 pr-2">
                 <div className="flex items-center space-x-5">
-                  <div className="flex items-center">
+                  <div className="flex items-center gap-2">
                     <input
                       type="file"
                       id="imgUpload"
@@ -185,6 +206,22 @@ const Channel = ({ user = null }) => {
                     >
                       <CameraIcon className="h-5 w-5" aria-hidden="true" />
                       <span className="sr-only">Attach a file</span>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => setShowEmojis(!showEmojis)}
+                      className="-m-2.5 flex h-10 w-10 items-center justify-center rounded-full text-gray-400 hover:text-gray-500"
+                    >
+                      <span>
+                        <FaceSmileIcon
+                          className={classNames(
+                            showEmojis && "text-pink-500",
+                            "h-5 w-5 flex-shrink-0"
+                          )}
+                          aria-hidden="true"
+                        />
+                        <span className="sr-only"> Add your mood </span>
+                      </span>
                     </button>
                   </div>
                 </div>
