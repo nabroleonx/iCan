@@ -424,6 +424,9 @@ function App() {
       >
         {renderContent()}
       </main>
+      <p className="mb-2 text-lg text-center font-bold">
+            © 2022 iCan.
+          </p>
     </div>
   );
 }
