@@ -424,7 +424,10 @@ function App() {
       >
         {renderContent()}
       </main>
-      <p className="mb-2 text-xs text-center font-light">© 2022 iCan.</p>
+
+      <p className="sticky bottom-0 text-xs text-center font-light">
+        © 2022 iCan.
+      </p>
     </div>
   );
 }
