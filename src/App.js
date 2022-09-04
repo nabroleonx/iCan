@@ -54,7 +54,7 @@ function App() {
   const renderContent = () => {
     if (initializing) {
       return (
-        <div className="flex items-center justify-center h-full">
+        <div className="flex items-center justify-center h-screen">
           <svg
             role="status"
             class="h-9 w-9 animate-spin mr-2 text-gray-200 dark:text-gray-600 fill-blue-600"
@@ -424,9 +424,7 @@ function App() {
       >
         {renderContent()}
       </main>
-      <p className="mb-2 text-lg text-center font-bold">
-            © 2022 iCan.
-          </p>
+      <p className="mb-2 text-xs text-center font-light">© 2022 iCan.</p>
     </div>
   );
 }
