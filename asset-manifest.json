@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/static/css/main.6cf9d241.css",
-    "main.js": "/static/js/main.3ba1aef1.js",
-    "index.html": "/index.html",
-    "main.6cf9d241.css.map": "/static/css/main.6cf9d241.css.map",
-    "main.3ba1aef1.js.map": "/static/js/main.3ba1aef1.js.map"
+    "main.css": "/Girl-Hack-2022/static/css/main.6cf9d241.css",
+    "main.js": "/Girl-Hack-2022/static/js/main.df741dd4.js",
+    "index.html": "/Girl-Hack-2022/index.html",
+    "main.6cf9d241.css.map": "/Girl-Hack-2022/static/css/main.6cf9d241.css.map",
+    "main.df741dd4.js.map": "/Girl-Hack-2022/static/js/main.df741dd4.js.map"
   },
   "entrypoints": [
     "static/css/main.6cf9d241.css",
-    "static/js/main.3ba1aef1.js"
+    "static/js/main.df741dd4.js"
   ]
 }
