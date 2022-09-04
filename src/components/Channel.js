@@ -85,7 +85,7 @@ const Channel = ({ user = null }) => {
 
   return (
     <div className="flex flex-col h-screen">
-      <div className="overflow-auto h-full">
+      <div className="overflow-auto scrollbar-hide h-full">
         <div className="py-4 max-w-screen-lg mx-auto">
           <div className="bg-slate-50 dark:bg-slate-800 dark:text-white border-b dark:border-slate-600 border-gray-200 py-8 mb-4">
             <div className="font-light text-lg text-center">
@@ -111,7 +111,7 @@ const Channel = ({ user = null }) => {
           <div ref={bottomListRef} />
         </div>
       </div>
-      <div className="sticky bottom-0 bg-slate-50 dark:bg-slate-800">
+      <div className="sticky bottom-6 bg-slate-50 dark:bg-slate-800">
         <div className="flex items-start space-x-4 max-w-screen-lg mx-auto rounded-md px-4 py-3 ">
           <div className="flex-shrink-0">
             <img
