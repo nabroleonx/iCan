@@ -1,70 +1,21 @@
-# Getting Started with Create React App
+Inspiration💡
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Do you know that It will take 108 years to close the gender gap as the recent Global Gender Gap report? So our team wants to do a project that could help decrease this 108 years. The other inspiration is, around the world, the achievements of women are being celebrated on International Women’s Day which began back in 1911. But it's always sad that it's only one day in a year. We want to make this happen every day. We want to create a platform for women and girls to share their stories of any kind either anonymously or using their Gmail.
 
-## Available Scripts
+What it does 🖥
+We made a web app specifically for women to share any thoughts, struggles, issues, and achievements with other women. Our platform will allow people to sign in with google or anonymously and share their thoughts. We think that most women who face issues might want to stay anonymous to share the things they have been through. But once they are comfortable with their thoughts they can use their email account and share their thoughts.
 
-In the project directory, you can run:
+How we built it ⚙️
+To make this project we used: how We used ReactJS, Tailwindcss, and Firebase to make this full-stack application. We have used the tailwind config to bring the dark and light mode, it also can adjust it based on your system. For the backend we used Firebase. Using Firebase we were able to have two auth methods anonymous and Gmail. The other thing we used is the firestore database to store the images and the chats.
 
-### `yarn start`
+Challenges we ran into 🎢
+We had problems implementing firebase cloud functions for bad words limit. The other problem was hosting the project on GitHub pages. It was built using react+firebase and that made it somewhat tricky to host it on ghpages. However, we fixed all the issues and hosted it on GitHub.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Accomplishments that we're proud of 🏆
+We used tailwindcss for the styling and we are proud of using it. We are also happy to use GitHub for hosting. We also have used every feature of GitHub available.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+What we learned 📚
+We learned about emoji mart, how to work with firebase images, tailwindcss and even though we couldn't implement it we learned a lot about twint and other ways to scrape data from Twitter API.
 
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+What's next for iCan ✈️
+Due to time, we couldn't automate the scraping of the Twitter bot and it's now working manually. We want to fully automate that and make it post to the chat in a few hours. The other option we couldn't add is a reply section.
