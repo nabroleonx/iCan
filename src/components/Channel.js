@@ -87,7 +87,7 @@ const Channel = ({ user = null }) => {
     <div className="flex flex-col h-screen">
       <div className="overflow-auto h-full">
         <div className="py-4 max-w-screen-lg mx-auto">
-          <div className="bg-gray-50 border-b dark:border-gray-600 border-gray-200 py-8 mb-4">
+          <div className="bg-slate-50 dark:bg-slate-800 dark:text-white border-b dark:border-slate-600 border-gray-200 py-8 mb-4">
             <div className="font-light text-lg text-center">
               <p className="mb-1">
                 This is an open space, talk freely and follow our community

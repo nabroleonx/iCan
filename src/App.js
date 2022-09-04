@@ -403,7 +403,7 @@ function App() {
         style={{ height: "var(--topbar-height)" }}
       >
         <a href="/">Ican chat</a>
-        <div className="flex items-center">
+        <div className="flex items-center gap-2">
           <ThemeSelector className="relative z-10" />
 
           {user ? (
