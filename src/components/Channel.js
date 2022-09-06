@@ -38,6 +38,10 @@ const Channel = ({ user = null }) => {
     }
   }, [inputRef]);
 
+  useEffect(() => {
+    bottomListRef.current.scrollIntoView();
+  }, [messages]);
+
   const [uploadFile] = useUploadFile();
   const [selectedFile, setSelectedFile] = useState(null);
   const ref = storage.ref(`${auth.currentUser.uid}/${Date.now()}`);
@@ -54,6 +58,8 @@ const Channel = ({ user = null }) => {
     if (selectedFile) {
       await uploadFile(ref, selectedFile);
       downloadURL = await ref.getDownloadURL();
+      setSelectedFile(null);
+      setNewMessage("");
     }
 
     if (trimmedMessage) {
@@ -65,38 +71,21 @@ const Channel = ({ user = null }) => {
         photoURL,
         attachedImage: downloadURL,
       });
-      setNewMessage("");
-      bottomListRef.current.scrollIntoView({ behavior: "smooth" });
     }
   };
-
-  useEffect(() => {
-    console.log(newMessage);
-  }, [newMessage]);
 
   const addEmoji = (e) => {
     let sym = e.unified.split("-");
     let codesArray = [];
     sym.forEach((el) => codesArray.push("0x" + el));
     let emoji = String.fromCodePoint(...codesArray);
-    console.log(emoji);
     setNewMessage(newMessage + emoji);
   };
 
   return (
     <div className="flex flex-col h-screen">
       <div className="overflow-auto scrollbar-hide h-full">
-        <div className="py-4 max-w-screen-lg mx-auto">
-          <div className="bg-slate-50 dark:bg-slate-800 dark:text-white border-b dark:border-slate-600 border-gray-200 py-8 mb-4">
-            <div className="font-light text-lg text-center">
-              <p className="mb-1">
-                This is an open space, talk freely and follow our community
-                guidelines!
-              </p>
-              <p className="mb-3"></p>
-            </div>
-            <p className="text-gray-400 text-center"></p>
-          </div>
+        <div className="max-w-screen-lg mx-auto mb-6">
           <ul>
             {messages
               ?.sort((first, second) =>
@@ -111,8 +100,8 @@ const Channel = ({ user = null }) => {
           <div ref={bottomListRef} />
         </div>
       </div>
-      <div className="sticky bottom-6 bg-slate-50 dark:bg-slate-800">
-        <div className="flex items-start space-x-4 max-w-screen-lg mx-auto rounded-md px-4 py-3 ">
+      <div className="sticky bottom-6">
+        <div className="flex items-start space-x-4  bg-slate-50 dark:bg-slate-800 max-w-screen-lg mx-auto rounded-md px-4 py-3 ">
           <div className="flex-shrink-0">
             <img
               src={

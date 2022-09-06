@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 import "firebase/compat/firestore";
@@ -7,6 +7,7 @@ import "firebase/compat/auth";
 import { useAuthState } from "./hooks";
 import Channel from "./components/Channel";
 import { ThemeSelector } from "./components/ThemeSelector";
+import CommunityGuidelines from "./components/CommunityGuidelines";
 
 firebase.initializeApp({
   apiKey: "AIzaSyDsMNXnHieoICvCV5F07jbaDbNU2A_IY5Q",
@@ -21,6 +22,7 @@ export const storage = firebase.storage();
 export const auth = firebase.auth();
 
 function App() {
+  let [isOpen, setIsOpen] = useState(false);
   const { user, initializing } = useAuthState(firebase.auth());
 
   const signInWithGoogle = async () => {
@@ -397,38 +399,51 @@ function App() {
   };
 
   return (
-    <div className="flex flex-col h-full bg-white dark:bg-slate-900 dark:text-white">
-      <header
-        className="flex-shrink-0 sticky top-0 z-20 py-2 bg-slate-50 dark:bg-slate-800 flex items-center justify-between px-4 sm:px-8 shadow-md"
-        style={{ height: "var(--topbar-height)" }}
-      >
-        <a href="/">Ican chat</a>
-        <div className="flex items-center gap-2">
-          <ThemeSelector className="relative z-10" />
+    <>
+      <div className="flex flex-col h-full bg-white dark:bg-slate-900 dark:text-white">
+        <header
+          className="flex-shrink-0 sticky top-0 z-20 py-2 bg-slate-50 dark:bg-slate-800 flex items-center justify-between px-4 sm:px-8 shadow-md"
+          style={{ height: "var(--topbar-height)" }}
+        >
+          <a href="/">Ican chat</a>
+          <div className="flex items-center gap-2">
+            <ThemeSelector className="relative z-10" />
 
-          {user ? (
-            <button
-              onClick={signOut}
-              className="uppercase text-xs font-medium text-red-500 hover:text-white tracking-wide hover:bg-red-500 bg-transparent rounded py-2 px-4 mr-4 focus:outline-none focus:ring focus:ring-red-500 focus:ring-opacity-75 transition-all"
-            >
-              Logout
-            </button>
-          ) : (
-            <div className="w-10"></div>
-          )}
+            {user ? (
+              <button
+                onClick={signOut}
+                className="uppercase text-xs font-medium text-red-500 hover:text-white tracking-wide hover:bg-red-500 bg-transparent rounded py-2 px-4 mr-4 focus:outline-none focus:ring focus:ring-red-500 focus:ring-opacity-75 transition-all"
+              >
+                Logout
+              </button>
+            ) : (
+              <div className="w-10"></div>
+            )}
+          </div>
+        </header>
+        <div className="sticky top-10 text-slate-800 bg-pink-50 dark:bg-slate-800 dark:text-white font-light lg:font-normal text-xs text-center border-b dark:border-slate-600 border-gray-200 pt-3 pb-2 mb-4">
+          This is an open space, talk freely and follow our{" "}
+          <span
+            onClick={() => setIsOpen(true)}
+            className="text-xs text-sky-500 rounded-md cursor-pointer"
+          >
+            community guidelines!
+          </span>
         </div>
-      </header>
-      <main
-        className="flex-1"
-        style={{ maxHeight: "calc(100% - var(--topbar-height))" }}
-      >
-        {renderContent()}
-      </main>
+        <main
+          className="flex-1"
+          style={{ maxHeight: "calc(100% - var(--topbar-height))" }}
+        >
+          {renderContent()}
+        </main>
 
-      <p className="sticky bottom-0 text-xs text-center font-light">
-        © 2022 iCan.
-      </p>
-    </div>
+        <p className="sticky bottom-0 text-xs text-center font-light">
+          © 2022 iCan.
+        </p>
+      </div>
+
+      {isOpen && <CommunityGuidelines isOpen={isOpen} setIsOpen={setIsOpen} />}
+    </>
   );
 }
 

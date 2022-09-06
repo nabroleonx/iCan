@@ -28,7 +28,6 @@ const Message = ({
   if (!text) return null;
 
   const messageClass = uid === auth.currentUser.uid ? "sent" : "received";
-  console.log(displayName);
   return (
     <div
       className={classNames(
@@ -61,7 +60,6 @@ const Message = ({
         <div className="flex items-center mb-1">
           {
             <p className="text-sky-600 mr-2">
-              {console.log(displayName === null, "wow", displayName)}
               {displayName === null ? "Anonymous User" : displayName}
             </p>
           }
