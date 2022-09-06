@@ -437,7 +437,7 @@ function App() {
           {renderContent()}
         </main>
 
-        <p className="sticky bottom-0 text-xs text-center font-light">
+        <p className="sticky bottom-0 text-xs text-center pt-3 font-light  bg-slate-50 dark:bg-slate-800">
           © 2022 iCan.
         </p>
       </div>
