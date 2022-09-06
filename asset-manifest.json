@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/iCan/static/css/main.e8686fef.css",
-    "main.js": "/iCan/static/js/main.8a61379f.js",
+    "main.js": "/iCan/static/js/main.dcf4c22b.js",
     "index.html": "/iCan/index.html",
     "main.e8686fef.css.map": "/iCan/static/css/main.e8686fef.css.map",
-    "main.8a61379f.js.map": "/iCan/static/js/main.8a61379f.js.map"
+    "main.dcf4c22b.js.map": "/iCan/static/js/main.dcf4c22b.js.map"
   },
   "entrypoints": [
     "static/css/main.e8686fef.css",
-    "static/js/main.8a61379f.js"
+    "static/js/main.dcf4c22b.js"
   ]
 }
