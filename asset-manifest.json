@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/iCan/static/css/main.43c43bfd.css",
-    "main.js": "/iCan/static/js/main.204f972b.js",
-    "index.html": "/iCan/index.html",
-    "main.43c43bfd.css.map": "/iCan/static/css/main.43c43bfd.css.map",
-    "main.204f972b.js.map": "/iCan/static/js/main.204f972b.js.map"
+    "main.css": "/Girl-Hack-2022/static/css/main.e8686fef.css",
+    "main.js": "/Girl-Hack-2022/static/js/main.3257d5b3.js",
+    "index.html": "/Girl-Hack-2022/index.html",
+    "main.e8686fef.css.map": "/Girl-Hack-2022/static/css/main.e8686fef.css.map",
+    "main.3257d5b3.js.map": "/Girl-Hack-2022/static/js/main.3257d5b3.js.map"
   },
   "entrypoints": [
-    "static/css/main.43c43bfd.css",
-    "static/js/main.204f972b.js"
+    "static/css/main.e8686fef.css",
+    "static/js/main.3257d5b3.js"
   ]
 }
