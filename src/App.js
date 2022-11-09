@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 import "firebase/compat/firestore";
 import "firebase/compat/storage";
 import "firebase/compat/auth";
-import { useAuthState } from "./hooks";
+import { useAuthState } from "react-firebase-hooks/auth";
 import Channel from "./components/Channel";
 import { ThemeSelector } from "./components/ThemeSelector";
 import CommunityGuidelines from "./components/CommunityGuidelines";
@@ -23,13 +23,28 @@ export const auth = firebase.auth();
 
 function App() {
   let [isOpen, setIsOpen] = useState(false);
-  const { user, initializing } = useAuthState(firebase.auth());
+  const [initializing, setInitializing] = useState(true);
+
+  const [user] = useAuthState(auth);
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      if (initializing) {
+        setInitializing(false);
+      }
+    });
+
+    return unsubscribe;
+  }, [initializing]);
 
   const signInWithGoogle = async () => {
     const provider = new firebase.auth.GoogleAuthProvider();
     firebase.auth().useDeviceLanguage();
     try {
-      await firebase.auth().signInWithPopup(provider);
+      const user = await firebase.auth().signInWithPopup(provider);
+      if (user) {
+        setInitializing(false);
+      }
     } catch (error) {
       console.log(error.message);
     }
@@ -39,7 +54,10 @@ function App() {
     const provider1 = new firebase.auth().signInAnonymously();
     firebase.auth().useDeviceLanguage();
     try {
-      await firebase.auth().signInWithPopup(provider1);
+      const user = await firebase.auth().signInWithPopup(provider1);
+      if (user) {
+        setInitializing(false);
+      }
     } catch (error) {
       console.log(error.message);
     }

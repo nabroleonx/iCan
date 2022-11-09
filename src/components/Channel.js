@@ -1,7 +1,6 @@
 import React, { useEffect, useState, useRef } from "react";
 import PropTypes from "prop-types";
 import firebase from "firebase/compat/app";
-import { useFirestoreQuery } from "../hooks";
 import Message from "./Message";
 import {
   CameraIcon,
@@ -9,6 +8,7 @@ import {
   XMarkIcon,
 } from "@heroicons/react/20/solid";
 import { useUploadFile } from "react-firebase-hooks/storage";
+import { useCollectionData } from "react-firebase-hooks/firestore";
 import { auth, storage } from "../App";
 import data from "@emoji-mart/data";
 import Picker from "@emoji-mart/react";
@@ -19,8 +19,9 @@ function classNames(...classes) {
 const Channel = ({ user = null }) => {
   const db = firebase.firestore();
   const messagesRef = db.collection("messages");
-  const messages = useFirestoreQuery(
-    messagesRef.orderBy("createdAt", "desc").limit(100)
+  const [messages] = useCollectionData(
+    messagesRef.orderBy("createdAt", "desc").limit(100),
+    { idField: "id" }
   );
 
   const [newMessage, setNewMessage] = useState("");
@@ -91,15 +92,19 @@ const Channel = ({ user = null }) => {
       <div className="overflow-auto scrollbar-hide h-full">
         <div className="max-w-screen-lg mx-auto mb-6">
           <ul>
-            {messages
-              ?.sort((first, second) =>
-                first?.createdAt?.seconds <= second?.createdAt?.seconds ? -1 : 1
-              )
-              ?.map((message) => (
-                <li key={message.id}>
-                  <Message {...message} />
-                </li>
-              ))}
+            {console.log(messages)}
+            {messages &&
+              messages
+                ?.sort((first, second) =>
+                  first?.createdAt?.seconds <= second?.createdAt?.seconds
+                    ? -1
+                    : 1
+                )
+                ?.map((message) => (
+                  <li key={message.id}>
+                    <Message {...message} />
+                  </li>
+                ))}
           </ul>
           <div ref={bottomListRef} />
         </div>
