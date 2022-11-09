@@ -75,7 +75,7 @@ const Message = ({
         )}
         <p>{text}</p>
         {createdAt?.seconds ? (
-          <span class="text-xs text-gray-500 leading-none">
+          <span className="text-xs text-gray-500 leading-none">
             {" "}
             {formatDate(new Date(createdAt.seconds * 1000))}
           </span>

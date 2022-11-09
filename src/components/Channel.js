@@ -63,14 +63,18 @@ const Channel = ({ user = null }) => {
     }
 
     if (trimmedMessage) {
-      messagesRef.add({
-        text: trimmedMessage,
-        createdAt: firebase.firestore.FieldValue.serverTimestamp(),
-        uid,
-        displayName,
-        photoURL,
-        attachedImage: downloadURL,
-      });
+      messagesRef
+        .add({
+          text: trimmedMessage,
+          createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+          uid,
+          displayName,
+          photoURL,
+          attachedImage: downloadURL,
+        })
+        .then(() => {
+          setNewMessage("");
+        });
     }
   };
 
@@ -159,7 +163,6 @@ const Channel = ({ user = null }) => {
                   rows={3}
                   className="block bg-transparent w-full border-0 py-3 focus:ring-0 sm:text-sm"
                   placeholder="Type your message here..."
-                  defaultValue={""}
                   ref={inputRef}
                   value={newMessage}
                   onChange={handleOnChange}

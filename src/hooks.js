@@ -6,7 +6,7 @@ export function useFirestoreQuery(query) {
   const queryRef = useRef(query);
 
   useEffect(() => {
-    if (!queryRef?.curent?.isEqual(query)) {
+    if (!queryRef?.current?.isEqual(query)) {
       queryRef.current = query;
     }
   });
